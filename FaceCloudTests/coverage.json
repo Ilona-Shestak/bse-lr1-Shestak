@@ -4,19 +4,43 @@
       "FaceCloudApp.User": {
         "System.String FaceCloudApp.User::get_Username()": {
           "Lines": {
-            "8": 7
+            "13": 17
           },
           "Branches": []
         },
         "System.Int32 FaceCloudApp.User::get_Warnings()": {
           "Lines": {
-            "9": 18
+            "16": 18
           },
           "Branches": []
         },
         "System.Boolean FaceCloudApp.User::get_IsBanned()": {
           "Lines": {
-            "10": 28
+            "17": 28
+          },
+          "Branches": []
+        },
+        "System.Void FaceCloudApp.User::IncrementWarnings()": {
+          "Lines": {
+            "20": 2,
+            "21": 2,
+            "22": 2
+          },
+          "Branches": []
+        },
+        "System.Void FaceCloudApp.User::SetBanned(System.Boolean)": {
+          "Lines": {
+            "25": 3,
+            "26": 3,
+            "27": 3
+          },
+          "Branches": []
+        },
+        "System.Void FaceCloudApp.User::ResetWarnings()": {
+          "Lines": {
+            "30": 2,
+            "31": 2,
+            "32": 2
           },
           "Branches": []
         }
@@ -24,23 +48,22 @@
       "FaceCloudApp.ModerationService": {
         "System.Void FaceCloudApp.ModerationService::AddWarning(FaceCloudApp.User)": {
           "Lines": {
-            "17": 4,
-            "18": 4,
-            "19": 1,
-            "20": 1,
-            "21": 1,
-            "26": 4,
-            "28": 2,
-            "30": 2,
-            "31": 1,
-            "32": 1,
-            "33": 1,
-            "34": 1,
-            "35": 3
+            "42": 4,
+            "43": 4,
+            "44": 1,
+            "45": 1,
+            "48": 4,
+            "50": 2,
+            "52": 2,
+            "53": 1,
+            "54": 1,
+            "55": 1,
+            "56": 1,
+            "57": 3
           },
           "Branches": [
             {
-              "Line": 18,
+              "Line": 43,
               "Offset": 7,
               "EndOffset": 9,
               "Path": 0,
@@ -48,41 +71,41 @@
               "Hits": 1
             },
             {
-              "Line": 18,
+              "Line": 43,
               "Offset": 7,
-              "EndOffset": 37,
+              "EndOffset": 26,
               "Path": 1,
               "Ordinal": 1,
               "Hits": 3
             },
             {
-              "Line": 26,
-              "Offset": 45,
-              "EndOffset": 49,
+              "Line": 48,
+              "Offset": 34,
+              "EndOffset": 38,
               "Path": 1,
               "Ordinal": 3,
               "Hits": 2
             },
             {
-              "Line": 30,
-              "Offset": 80,
-              "EndOffset": 82,
+              "Line": 52,
+              "Offset": 59,
+              "EndOffset": 61,
               "Path": 0,
               "Ordinal": 4,
               "Hits": 1
             },
             {
-              "Line": 26,
-              "Offset": 45,
-              "EndOffset": 119,
+              "Line": 48,
+              "Offset": 34,
+              "EndOffset": 156,
               "Path": 0,
               "Ordinal": 2,
               "Hits": 3
             },
             {
-              "Line": 30,
-              "Offset": 80,
-              "EndOffset": 119,
+              "Line": 52,
+              "Offset": 59,
+              "EndOffset": 156,
               "Path": 1,
               "Ordinal": 5,
               "Hits": 1
@@ -91,105 +114,20 @@
         },
         "System.Boolean FaceCloudApp.ModerationService::CanPostContent(FaceCloudApp.User,System.String)": {
           "Lines": {
-            "39": 5,
-            "40": 5,
-            "41": 6,
-            "42": 5,
-            "43": 4,
-            "44": 2,
-            "45": 1,
-            "46": 1,
-            "47": 1,
-            "50": 1,
-            "51": 4
-          },
-          "Branches": [
-            {
-              "Line": 41,
-              "Offset": 13,
-              "EndOffset": 15,
-              "Path": 0,
-              "Ordinal": 0,
-              "Hits": 1
-            },
-            {
-              "Line": 41,
-              "Offset": 13,
-              "EndOffset": 26,
-              "Path": 1,
-              "Ordinal": 1,
-              "Hits": 4
-            },
-            {
-              "Line": 42,
-              "Offset": 34,
-              "EndOffset": 36,
-              "Path": 0,
-              "Ordinal": 2,
-              "Hits": 1
-            },
-            {
-              "Line": 42,
-              "Offset": 34,
-              "EndOffset": 40,
-              "Path": 1,
-              "Ordinal": 3,
-              "Hits": 3
-            },
-            {
-              "Line": 43,
-              "Offset": 50,
-              "EndOffset": 52,
-              "Path": 0,
-              "Ordinal": 4,
-              "Hits": 1
-            },
-            {
-              "Line": 43,
-              "Offset": 50,
-              "EndOffset": 56,
-              "Path": 1,
-              "Ordinal": 5,
-              "Hits": 2
-            },
-            {
-              "Line": 44,
-              "Offset": 73,
-              "EndOffset": 75,
-              "Path": 0,
-              "Ordinal": 6,
-              "Hits": 1
-            },
-            {
-              "Line": 44,
-              "Offset": 73,
-              "EndOffset": 91,
-              "Path": 1,
-              "Ordinal": 7,
-              "Hits": 1
-            }
-          ]
-        },
-        "System.Int32 FaceCloudApp.ModerationService::MassUnban(System.Collections.Generic.List`1<FaceCloudApp.User>)": {
-          "Lines": {
-            "55": 2,
-            "56": 3,
-            "58": 1,
-            "60": 9,
-            "61": 3,
-            "62": 3,
-            "63": 2,
-            "64": 2,
-            "65": 2,
+            "61": 5,
+            "62": 6,
+            "63": 5,
+            "64": 4,
             "66": 2,
-            "67": 2,
-            "68": 3,
-            "70": 1,
-            "71": 1
+            "67": 1,
+            "68": 1,
+            "69": 1,
+            "72": 1,
+            "73": 4
           },
           "Branches": [
             {
-              "Line": 56,
+              "Line": 62,
               "Offset": 7,
               "EndOffset": 9,
               "Path": 0,
@@ -197,7 +135,91 @@
               "Hits": 1
             },
             {
-              "Line": 56,
+              "Line": 62,
+              "Offset": 7,
+              "EndOffset": 20,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            },
+            {
+              "Line": 63,
+              "Offset": 28,
+              "EndOffset": 30,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 63,
+              "Offset": 28,
+              "EndOffset": 34,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 3
+            },
+            {
+              "Line": 64,
+              "Offset": 42,
+              "EndOffset": 44,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 64,
+              "Offset": 42,
+              "EndOffset": 48,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 2
+            },
+            {
+              "Line": 66,
+              "Offset": 65,
+              "EndOffset": 67,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 1
+            },
+            {
+              "Line": 66,
+              "Offset": 65,
+              "EndOffset": 83,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Int32 FaceCloudApp.ModerationService::MassUnban(System.Collections.Generic.IEnumerable`1<FaceCloudApp.User>)": {
+          "Lines": {
+            "77": 2,
+            "78": 3,
+            "80": 1,
+            "82": 9,
+            "83": 3,
+            "84": 3,
+            "85": 2,
+            "86": 2,
+            "87": 2,
+            "88": 2,
+            "89": 2,
+            "90": 3,
+            "92": 1,
+            "93": 1
+          },
+          "Branches": [
+            {
+              "Line": 78,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 78,
               "Offset": 7,
               "EndOffset": 20,
               "Path": 1,
@@ -205,49 +227,49 @@
               "Hits": 1
             },
             {
-              "Line": 60,
-              "Offset": 89,
+              "Line": 82,
+              "Offset": 86,
               "EndOffset": 32,
               "Path": 1,
               "Ordinal": 7,
               "Hits": 3
             },
             {
-              "Line": 62,
-              "Offset": 42,
-              "EndOffset": 44,
+              "Line": 84,
+              "Offset": 41,
+              "EndOffset": 43,
               "Path": 0,
               "Ordinal": 2,
               "Hits": 3
             },
             {
-              "Line": 62,
-              "Offset": 42,
-              "EndOffset": 52,
+              "Line": 84,
+              "Offset": 41,
+              "EndOffset": 51,
               "Path": 1,
               "Ordinal": 3,
               "Hits": 0
             },
             {
-              "Line": 62,
-              "Offset": 57,
-              "EndOffset": 59,
+              "Line": 84,
+              "Offset": 56,
+              "EndOffset": 58,
               "Path": 0,
               "Ordinal": 4,
               "Hits": 2
             },
             {
-              "Line": 62,
-              "Offset": 57,
-              "EndOffset": 81,
+              "Line": 84,
+              "Offset": 56,
+              "EndOffset": 79,
               "Path": 1,
               "Ordinal": 5,
               "Hits": 3
             },
             {
-              "Line": 60,
-              "Offset": 89,
-              "EndOffset": 91,
+              "Line": 82,
+              "Offset": 86,
+              "EndOffset": 88,
               "Path": 0,
               "Ordinal": 6,
               "Hits": 1
@@ -258,10 +280,10 @@
       "FaceCloudApp.Program": {
         "System.Void FaceCloudApp.Program::Main(System.String[])": {
           "Lines": {
-            "77": 0,
-            "78": 0,
-            "79": 0,
-            "80": 0
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0
           },
           "Branches": []
         }

@@ -1,47 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
+// Дозволяємо тестовому проєкту FaceCloudTests бачити та змінювати internal-властивості для Arrange-фази тестів
+[assembly: InternalsVisibleTo("FaceCloudTests")]
 
 namespace FaceCloudApp
 {
     public class User
     {
-        public string Username { get; set; }
-        public int Warnings { get; set; }
-        public bool IsBanned { get; set; }
+        // Додано ініціалізацію за замовчуванням, щоб прибрати warning CS8618
+        public string Username { get; set; } = string.Empty;
+        
+        // Змінено з private set на internal set для сумісності з тестами
+        public int Warnings { get; internal set; }
+        public bool IsBanned { get; internal set; }
+
+        public void IncrementWarnings()
+        {
+            Warnings++;
+        }
+
+        public void SetBanned(bool banned)
+        {
+            IsBanned = banned;
+        }
+
+        public void ResetWarnings()
+        {
+            Warnings = 0;
+        }
     }
 
     public class ModerationService
     {
+        private const int MaxWarningsBeforeBan = 3;
+        private const int MaxPostLength = 500;
+
         // МЕТОД 1: Додавання варну
         public void AddWarning(User user)
         {
             if (user == null)
             {
-                Console.WriteLine("[ERROR] Спроба передати пустого користувача в систему!");
                 throw new ArgumentNullException(nameof(user), "User cannot be null");
             }
 
-            // Console.WriteLine($"DEBUG: Поточні варни користувача: {user.Warnings}"); 
-
             if (user.IsBanned) return;
 
-            user.Warnings++;
+            user.IncrementWarnings();
 
-            if (user.Warnings >= 3)
+            if (user.Warnings >= MaxWarningsBeforeBan)
             {
-                user.IsBanned = true;
-                Console.WriteLine($"[MODERATION] Користувача {user.Username} було автоматично забанено за 3 варни.");
+                user.SetBanned(true);
+                Console.WriteLine($"[MODERATION] Користувача {user.Username} було автоматично забанено за {MaxWarningsBeforeBan} варни.");
             }
         }
 
         // МЕТОД 2: Перевірка можливості публікації
         public bool CanPostContent(User user, string content)
         {
-            int maxPostLengthLimit = 500; 
             if (user == null) throw new ArgumentNullException(nameof(user));
             if (user.IsBanned) return false;
             if (string.IsNullOrWhiteSpace(content)) return false;
-            if (content.Length > 500)
+            
+            if (content.Length > MaxPostLength)
             {
                 Console.WriteLine($"[WARN] Помилка валідації: довжина контенту користувача перевищує максимально допустимий ліміт системи FaceCloud.");
                 return false;
@@ -50,8 +72,8 @@ namespace FaceCloudApp
             return true;
         }
 
-        // МЕТОД 3: Масовий розбан користувачів (Цикли)
-        public int MassUnban(List<User> users)
+        // МЕТОД 3: Масовий розбан користувачів
+        public int MassUnban(IEnumerable<User> users)
         {
             if (users == null) throw new ArgumentNullException(nameof(users));
             
@@ -61,8 +83,8 @@ namespace FaceCloudApp
             {
                 if (user != null && user.IsBanned)
                 {
-                    user.IsBanned = false;
-                    user.Warnings = 0;
+                    user.SetBanned(false);
+                    user.ResetWarnings();
                     unbannedCount++;
                 }
             }
